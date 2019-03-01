@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/GD-assignment1-EMF/src-gen" creationIcons="false"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/GD-assignment1-EMF/src-gen" creationIcons="false"
     editDirectory="/GD-assignment1-EMF.edit/src-gen" editorDirectory="/GD-assignment1-EMF.editor/src-gen"
     modelPluginID="GD-assignment1-EMF" modelName="GD_assignment1_EMF" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0"
@@ -8,5 +9,53 @@
   <foreignModel>GD_assignment1_EMF.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
   <genPackages prefix="GD_assignment1_EMF" basePackage="gd-assignment1-emf" disposableProviderFactory="true"
-      ecorePackage="GD_assignment1_EMF.ecore#/"/>
+      ecorePackage="GD_assignment1_EMF.ecore#/">
+    <genClasses ecoreClass="GD_assignment1_EMF.ecore#//User">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GD_assignment1_EMF.ecore#//User/userID"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GD_assignment1_EMF.ecore#//User/userName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GD_assignment1_EMF.ecore#//User/balance"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//User/sharedBicycleServiceProvider"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//User/activeTransaction"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//User/transcationRecords"/>
+    </genClasses>
+    <genClasses ecoreClass="GD_assignment1_EMF.ecore#//Bike">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GD_assignment1_EMF.ecore#//Bike/bikeID"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//Bike/activeTransaction"/>
+    </genClasses>
+    <genClasses ecoreClass="GD_assignment1_EMF.ecore#//SharedBicycleServiceProvider">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//SharedBicycleServiceProvider/user"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GD_assignment1_EMF.ecore#//SharedBicycleServiceProvider/providerName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//SharedBicycleServiceProvider/manager"/>
+    </genClasses>
+    <genClasses ecoreClass="GD_assignment1_EMF.ecore#//Transaction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GD_assignment1_EMF.ecore#//Transaction/price"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GD_assignment1_EMF.ecore#//Transaction/date"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//Transaction/user"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//Transaction/bike"/>
+    </genClasses>
+    <genClasses ecoreClass="GD_assignment1_EMF.ecore#//ActiveTransaction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//ActiveTransaction/financeManager"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//ActiveTransaction/transactionManager"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GD_assignment1_EMF.ecore#//ActiveTransaction/isBalanceLow"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GD_assignment1_EMF.ecore#//ActiveTransaction/isUsingAnOtherBike"/>
+    </genClasses>
+    <genClasses ecoreClass="GD_assignment1_EMF.ecore#//PassedTransaction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//PassedTransaction/transcationRecords"/>
+    </genClasses>
+    <genClasses ecoreClass="GD_assignment1_EMF.ecore#//TranscationRecords">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//TranscationRecords/user"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//TranscationRecords/passedTransaction"/>
+    </genClasses>
+    <genClasses ecoreClass="GD_assignment1_EMF.ecore#//Manager">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GD_assignment1_EMF.ecore#//Manager/id"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//Manager/sharedBicycleServiceProvider"/>
+    </genClasses>
+    <genClasses ecoreClass="GD_assignment1_EMF.ecore#//FinanceManager">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//FinanceManager/activeTransaction"/>
+    </genClasses>
+    <genClasses ecoreClass="GD_assignment1_EMF.ecore#//TransactionManager">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GD_assignment1_EMF.ecore#//TransactionManager/activeTransaction"/>
+    </genClasses>
+    <genClasses ecoreClass="GD_assignment1_EMF.ecore#//UserManager"/>
+  </genPackages>
 </genmodel:GenModel>
