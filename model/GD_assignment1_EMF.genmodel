@@ -8,7 +8,7 @@
     copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>GD_assignment1_EMF.ecore</foreignModel>
   <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="GD_assignment1_EMF" basePackage="gd-assignment1-emf" disposableProviderFactory="true"
+  <genPackages prefix="GD_assignment1_EMF" basePackage="zf41.CO7207" disposableProviderFactory="true"
       ecorePackage="GD_assignment1_EMF.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="GD_assignment1_EMF.ecore#//StatusOfTransaction">
       <genEnumLiterals ecoreEnumLiteral="GD_assignment1_EMF.ecore#//StatusOfTransaction/WaitingForCheck"/>
