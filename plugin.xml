@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated GD_assignment1_EMF -->
+      <package
+            uri="http://www.example.org/GD_assignment1_EMF"
+            class="zf41.CO7207.GD_assignment1_EMF.GD_assignment1_EMFPackage"
+            genModel="model/GD_assignment1_EMF.genmodel"/>
+   </extension>
+
+</plugin>
